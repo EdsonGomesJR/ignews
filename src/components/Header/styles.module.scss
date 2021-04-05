@@ -1,0 +1,62 @@
+.headerContainer {
+  height: 5rem;
+  border-bottom: 1px solid var(--gray-800);
+}
+
+.headerContent {
+  max-width: 1120px;
+  height: 5rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+
+  nav {
+    margin-left: 5rem;
+    // ocupar todo o espaço para colocar aquela bordinha de pag selecionada
+    height: 5rem;
+
+    a {
+      display: inline-block;
+      // relative pois para precisa já que a borda vai estar em position absolute
+      position: relative;
+      padding: 0 0.5rem;
+      height: 5rem;
+      // se colocar lineheight do mesmo tamanho que ocupa, ficará ao centro
+      line-height: 5rem;
+      color: var(--gray-300);
+      transition: color 0.2s;
+      // toda link/ancora que antes dela tiver uma ancora, hack para espaçar do 2 item em diante,
+      // e não o primeiro
+      & + a {
+        margin-left: 2rem;
+      }
+      &:hover {
+        color: var(--white);
+      }
+      &.active {
+        color: var(--white);
+        font-weight: bold;
+      }
+      // after coloca algo antes de fexar a tag, e before antes
+      // essa é a bordinha
+      &.active::after {
+        content: "";
+        height: 3px;
+        border-radius: 3px 3px 0 0;
+        width: 100%;
+        position: absolute;
+        bottom: 1px;
+        left: 0;
+        background: var(--yellow-500);
+      }
+    }
+  }
+  // jogar o botão do componente SignInButton lá pra direita, o margin auto da o
+  //maximo de margin que pode
+  //foi colocada a margin aqui, pq nesse contexto o botão está no header
+  button {
+    margin-left: auto;
+  }
+}

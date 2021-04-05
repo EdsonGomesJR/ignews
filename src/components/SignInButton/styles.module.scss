@@ -1,0 +1,32 @@
+.signInButton {
+  height: 3rem;
+  border-radius: 3rem; //se deixa o mesmo tamanho que o height fica o mais arredondado possivel
+  background: var(--gray-850);
+  border: 0;
+  padding: 0 1.5rem;
+  color: var(--white);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  svg:first-child {
+    //pq quando estiver logado tera outro svg
+    margin-right: 1rem;
+  }
+
+  svg.closeIcon {
+    margin-left: 1rem;
+  }
+
+  transition: filter 0.2s;
+  &:hover {
+    filter: brightness(0.8);
+  }
+}
